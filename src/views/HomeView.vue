@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import TheWelcome from '@/components/TheWelcome.vue'
 
-import { useHead } from '@vueuse/head'
+import { useServerHead } from '@vueuse/head'
 
-useHead({
+useServerHead({
   title: 'Home',
   meta: [
     {

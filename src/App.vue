@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import { useHead } from '@vueuse/head'
+import { useServerHead } from '@vueuse/head'
 
-useHead({
+useServerHead({
   titleTemplate: (title?: string) =>
     !title ? 'Default title' : `${title} - My Site`,
 })
