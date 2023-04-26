@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { useServerHead } from '@vueuse/head'
 
-useHead({
+useServerHead({
   title: 'About',
   meta: [
     {
