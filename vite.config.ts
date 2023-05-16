@@ -2,15 +2,13 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
-import vue2 from '@vitejs/plugin-vue2'
+import vue from '@vitejs/plugin-vue2'
 import UnheadVite from '@unhead/addons/vite'
 
 // https://vitejs.dev/config/
-const base = '/test/'
 export default defineConfig({
-  base,
   plugins: [
-    vue2(),
+    vue(),
     legacy({
       targets: ['ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
@@ -20,6 +18,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+
+  css: {
+    devSourcemap: true,
+    preprocessorOptions: {
+      sass: {
+        additionalData: `
+          @import "src/assets/stylesheets/variables";
+          @import "src/assets/stylesheets/helpers/bootstrap-overrides/variables";
+        `,
+        sourceMap: true,
+      },
     },
   },
 })

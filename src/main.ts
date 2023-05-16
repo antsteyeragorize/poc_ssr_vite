@@ -4,7 +4,7 @@ import App from './App.vue'
 import { createRouter } from './router'
 
 import './assets/main.css'
-import { createHead, HeadVuePlugin } from '@vueuse/head'
+import { createHead, HeadVuePlugin, VueHeadMixin } from '@vueuse/head'
 
 // SSR requires a fresh app instance per request, therefore we export a function
 // that creates a fresh app instance. If using Vuex, we'd also be creating a
@@ -14,6 +14,7 @@ export function createApp() {
 
   const head = createHead()
 
+  Vue.mixin(VueHeadMixin)
   Vue.use(HeadVuePlugin, head)
   Vue.use(head)
 

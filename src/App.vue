@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import { useServerHead } from '@vueuse/head'
+import { useHead } from '@vueuse/head'
 
-useServerHead({
+useHead({
+  htmlAttrs: {
+    lang: 'en', // Change to your language
+  },
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+  ],
   titleTemplate: (title?: string) =>
     !title ? 'Default title' : `${title} - My Site`,
 })
@@ -23,8 +30,8 @@ useServerHead({
         <HelloWorld msg="You did it!" />
 
         <nav>
-          <router-link to="/">Home</router-link>
-          <router-link to="/about">About</router-link>
+          <router-link to="/web/">Home</router-link>
+          <router-link to="/web/about">About</router-link>
         </nav>
       </div>
     </header>

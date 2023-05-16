@@ -11,12 +11,12 @@ export const routerObject = (): RouterOptions => {
     base: import.meta.env.BASE_URL,
     routes: [
       {
-        path: '/',
+        path: '/web',
         name: 'home',
         component: HomeView,
       },
       {
-        path: '/about',
+        path: '/web/about',
         name: 'about',
         component: AboutView,
       },
