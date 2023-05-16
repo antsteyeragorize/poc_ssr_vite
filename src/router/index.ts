@@ -2,23 +2,29 @@ import Vue from 'vue'
 import Router, { RouterOptions } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
+import ErrorView from '@/components/ErrorView.vue'
 
 Vue.use(Router)
 
 export const routerObject = (): RouterOptions => {
   return {
     mode: 'history',
-    base: import.meta.env.BASE_URL,
+    base: '/web/',
     routes: [
       {
-        path: '/web',
+        path: '/',
         name: 'home',
         component: HomeView,
       },
       {
-        path: '/web/about',
+        path: '/about',
         name: 'about',
         component: AboutView,
+      },
+      {
+        path: '/*',
+        name: 'error',
+        component: ErrorView,
       },
     ],
   }
